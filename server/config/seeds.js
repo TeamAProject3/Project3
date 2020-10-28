@@ -5,11 +5,13 @@ db.once('open', async () => {
   await Category.deleteMany();
 
   const categories = await Category.insertMany([
+
     { name: 'Materials' },
     { name: 'Industrials' },
     { name: 'Financials' },
     { name: 'Real State' },
     { name: 'Technology' }
+
   ]);
 
   console.log('categories seeded');
@@ -18,6 +20,7 @@ db.once('open', async () => {
 
   const products = await Product.insertMany([
     {
+
       name: 'GDX',
       description:
         'VanEck Vectors Gold Miners ETF ',
@@ -63,6 +66,7 @@ db.once('open', async () => {
       quantity: 100
     },
     
+
   ]);
 
   console.log('products seeded');
