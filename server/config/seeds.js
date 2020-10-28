@@ -24,7 +24,7 @@ db.once('open', async () => {
       name: 'GDX',
       description:
         'VanEck Vectors Gold Miners ETF ',
-      image: 'cookie-tin.jpg',
+      image: 'vaneckgdx.jpg',
       category: categories[0]._id,
       price: 38.21,
       quantity: 500
@@ -33,7 +33,7 @@ db.once('open', async () => {
       name: 'JETS',
       description:
         'U.S. Global Jets ETF',
-      image: 'canned-coffee.jpg',
+      image: 'jets.jpg',
       category: categories[1]._id,
       price: 17.78,
       quantity: 500
@@ -43,7 +43,7 @@ db.once('open', async () => {
       category: categories[2]._id,
       description:
         'Fidelity MSCI Financials Index ETF',
-      image: 'toilet-paper.jpg',
+      image: 'fidelity.jpg',
       price: 18.99,
       quantity: 20
     },
@@ -52,7 +52,7 @@ db.once('open', async () => {
       category: categories[3]._id,
       description:
         'Vanguard Real Estate Index Fund',
-      image: 'soap.jpg',
+      image: 'vanguard.jpg',
       price: 78.97,
       quantity: 50
     },
@@ -61,7 +61,7 @@ db.once('open', async () => {
       category: categories[4]._id,
       description:
         'iShares PHLX Semiconductor ETF',
-      image: 'wooden-spoons.jpg',
+      image: 'ishares.jpg',
       price: 80.65,
       quantity: 100
     },
