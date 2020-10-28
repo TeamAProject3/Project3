@@ -11,6 +11,7 @@ function Nav() {
           <li className="mx-1">
             <Link to="/orderHistory">
               History
+
             </Link>
           </li>
           <li className="mx-1">
@@ -45,6 +46,7 @@ function Nav() {
         <Link to="/">
           <span role="img" aria-label="shopping bag">💰💰💰</span>
           MarketStack
+
         </Link>
       </h1>
 
