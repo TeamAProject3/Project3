@@ -13,6 +13,7 @@ import {
 import { QUERY_PRODUCTS } from "../utils/queries";
 import { idbPromise } from "../utils/helpers";
 import spinner from '../assets/spinner.gif'
+import Plot from 'react-plotly.js';
 
 function Detail() {
   const [state, dispatch] = useStoreContext();
@@ -82,6 +83,75 @@ function Detail() {
     idbPromise('cart', 'delete', { ...currentProduct });
   };
 
+  class Stock extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            stockChartXValues: [],
+            stockChartYValues: [],
+        }
+    }
+
+    componentDidMount() {
+        this.fetchStock();
+    }
+
+    fetchStock() {
+        const pointerToThis = this;
+        console.log(pointerToThis);
+        const API_KEY = '2HDATQVJS3CUPYWI'; // 5 calls per min, 500 per day
+        let StockSymbol = 'AMZN';
+        let API_Call = `https://www.alphavantage.co/query?
+        function=TIME_SERIES_DAILY_ADJUSTED&symbol=${StockSymbol}
+        &outputsize=compact&apikey=${API_KEY}`;
+        let stockChartXValuesFunction = [];
+        let stockChartYValuesFunction = [];
+
+        fetch(API_Call)
+            .then(
+                function(response) {
+                    return response.json();
+                }
+            )
+            .then(
+                function(data) {
+                    console.log(data);
+
+                    for (var key in data['Time Series (Daily)']) {
+                        stockChartXValuesFunction.push(key);
+                        stockChartYValuesFunction.push(data['Time Series (Daily)']
+                        [key]['1. open']);
+                    }
+
+                    pointerToThis.setState({
+                        stockChartXValues: stockChartXValuesFunction,
+                        stockChartYValues: stockChartYValuesFunction
+                    });
+                }
+            )
+    }
+
+    // render() {
+    //     return (
+    //         <div>
+    //             <h1>Stock Market</h1>
+    //             <Plot
+    //     data={[
+    //       {
+    //         x: this.state.stockChartXValues,
+    //         y: this.state.stockChartYValues,
+    //         type: 'scatter',
+    //         mode: 'lines+markers',
+    //         marker: {color: 'red'},
+    //       }
+    //     ]}
+    //     layout={{width: 720, height: 440, title: 'A Fancy Plot'}}
+    //   />
+    //         </div>
+    //     )
+    // }
+}
+
   return (
     <>
       {currentProduct && cart ? (
@@ -115,6 +185,18 @@ function Detail() {
             src={`/images/${currentProduct.image}`}
             alt={currentProduct.name}
           />
+          <Plot
+        data={[
+          {
+            x: this.state.stockChartXValues,
+            y: this.state.stockChartYValues,
+            type: 'scatter',
+            mode: 'lines+markers',
+            marker: {color: 'red'},
+          }
+        ]}
+        layout={{width: 720, height: 440, title: 'A Fancy Plot'}}
+      />
         </div>
       ) : null}
       {
