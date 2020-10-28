@@ -63,9 +63,71 @@ db.once('open', async () => {
         'iShares PHLX Semiconductor ETF',
       image: 'ishares.jpg',
       price: 80.65,
-      quantity: 100
+      quantity: 45
     },
-    
+    {
+      name: 'LIT',
+      category: categories[0]._id,
+      description:
+        'Global X Lithium ETF',
+      image: 'globalx.jpg',
+      price: 42.79,
+      quantity: 149
+    },
+    {
+      name: 'PIO',
+      category: categories[1]._id,
+      description:
+        'Invesco Global Water ETF',
+      image: 'invesco.jpg',
+      price: 32.21,
+      quantity: 32
+    },
+    {
+      name: 'DPST',
+      category: categories[2]._id,
+      description:
+        'Direxion Daily Regional Banks Bull 3X Shares',
+      image: 'direxion.jpg',
+      price: 62.13,
+      quantity: 12
+    },
+    {
+      name: 'BBRE',
+      category: categories[3]._id,
+      description:
+        'JPMorgan BetaBuilders MSCI US REIT ETF',
+      image: 'jpmorgan.jpg',
+      price: 71.65,
+      quantity: 112
+    },
+    {
+      name: 'CLOU',
+      category: categories[4]._id,
+      description:
+        'Global X Cloud Computing ETF',
+      image: 'cloud.jpg',
+      price: 25.11,
+      quantity: 1110
+    },
+    {
+      name: 'HACK',
+      category: categories[4]._id,
+      description:
+        'ETFMG Prime Cyber Security ETF',
+      image: 'hack.jpg',
+      price: 47.58,
+      quantity: 67
+    },
+    {
+      name: 'KIE',
+      category: categories[2]._id,
+      description:
+        'SPDR S&P Insurance ETF',
+      image: 'spdr.jpg',
+      price: 28.77,
+      quantity: 52
+    },
 
   ]);
 
