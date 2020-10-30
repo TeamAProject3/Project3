@@ -52,7 +52,7 @@ function ProductItem(item) {
         <div>{quantity} {pluralize("Share", quantity)} available to purchase</div>
         <span>${price}</span>
       </div>
-      <button onClick={addToCart}>Add to cart</button>
+      <button onClick={addToCart}>Add to Portfolio</button>
     </div>
   );
 }
